@@ -1,0 +1,318 @@
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    z-index: 20;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+}
+.hamburger {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: var(--secondary);
+    position: relative;
+    border-radius: 2px;
+    transition: background 0.3s;
+}
+.hamburger::before, .hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 28px;
+    height: 3px;
+    background: var(--secondary);
+    border-radius: 2px;
+    transition: transform 0.3s;
+}
+.hamburger::before {
+    top: -9px;
+}
+.hamburger::after {
+    top: 9px;
+}
+nav.open {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: var(--primary);
+    box-shadow: var(--shadow);
+    padding: 2rem 0 1rem 0;
+    gap: 1.5rem;
+    z-index: 15;
+    animation: fadeInDown 0.5s;
+}
+nav.open a {
+    font-size: 1.3rem;
+    padding: 1rem 2rem;
+}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+:root {
+    --primary: #964F4C; /* Marsala */
+    --secondary: #B71C1C; /* Vermelho Pantone */
+    --accent: #F4E6E6; /* Marsala claro */
+    --dark: #6D2C2F; /* Marsala escuro */
+    --light: #FFF6F6; /* Fundo claro avermelhado */
+    --text: #3B1F1F;
+    --radius: 10px;
+    --shadow: 0 2px 12px #0002;
+    --transition: 0.3s cubic-bezier(.4,0,.2,1);
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    margin: 0;
+    font-family: 'Montserrat', Arial, sans-serif;
+    background: var(--light);
+    color: var(--text);
+    min-height: 100vh;
+    transition: background var(--transition), color var(--transition);
+}
+header {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    animation: fadeInDown 1s;
+}
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    transition: background var(--transition), color var(--transition);
+}
+nav a:hover {
+    background: var(--secondary);
+    color: #fff;
+}
+.hero {
+    background: linear-gradient(120deg, var(--primary) 60%, var(--secondary) 100%);
+    color: #fff;
+    padding: 4rem 1rem 3rem 1rem;
+    text-align: center;
+    animation: fadeIn 1.2s;
+}
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+.hero a {
+    background: var(--secondary);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 0.75rem 2rem;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: var(--shadow);
+    transition: background var(--transition), transform var(--transition);
+    display: inline-block;
+    animation: fadeInUp 1.5s;
+}
+.hero a:hover {
+    background: var(--dark);
+    color: #fff;
+    transform: scale(1.05);
+}
+main {
+    width: 100%;
+    margin: 0 auto;
+}
+section {
+    margin-bottom: 2.5rem;
+    animation: fadeIn 1.2s;
+}
+.services, .products, .testimonials {
+    max-width: 1200px;
+    margin: auto;
+}
+.services-list, .products-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+.service, .product {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 2rem 1rem;
+    text-align: center;
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+.service:hover, .product:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 4px 24px #964F4C33;
+}
+.about {
+    background: var(--accent);
+    border-radius: var(--radius);
+    padding: 2rem 1rem;
+    max-width: 900px;
+    margin: 2rem auto;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+.testimonials-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+.testimonial {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.5rem 1rem;
+    font-style: italic;
+    position: relative;
+    transition: box-shadow var(--transition);
+}
+.testimonial footer {
+    font-style: normal;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-top: 1rem;
+}
+.contact {
+    background: var(--accent);
+    border-radius: var(--radius);
+    padding: 2rem 1rem;
+    max-width: 600px;
+    margin: 2rem auto;
+    box-shadow: var(--shadow);
+}
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.contact input, .contact textarea {
+    padding: 0.75rem;
+    border-radius: var(--radius);
+    border: 1px solid #ccc;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border var(--transition);
+}
+.contact input:focus, .contact textarea:focus {
+    border: 1.5px solid var(--primary);
+    outline: none;
+}
+.contact button {
+    background: var(--secondary);
+    color: #fff;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: var(--radius);
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition);
+}
+.contact button:hover {
+    background: var(--primary);
+    color: #fff;
+    transform: scale(1.05);
+}
+footer {
+    background: var(--primary);
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    box-shadow: var(--shadow);
+    animation: fadeInUp 1.2s;
+}
+@media (max-width: 900px) {
+    .services-list, .products-list, .testimonials-list {
+        grid-template-columns: 1fr;
+    }
+    nav {
+        gap: 1rem;
+    }
+}
+@media (max-width: 600px) {
+    html { font-size: 15px; }
+    .hero h1 { font-size: 2rem; }
+    .about, .contact {
+        padding: 1rem;
+    }
+    header, nav, footer {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    nav {
+        display: none;
+    }
+    .menu-toggle {
+        display: block;
+    }
+    nav.open {
+        display: flex !important;
+    }
+}
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+body { margin: 0; font-family: Arial, sans-serif; }
+header, nav, main, section, article, aside, footer { display: block; }
+header { background: #2d3e50; color: #fff; padding: 1rem 0; }
+nav { display: flex; justify-content: center; gap: 2rem; }
+nav a { color: #fff; text-decoration: none; font-weight: bold; }
+.hero { background: #eaf6fb; padding: 3rem 1rem; text-align: center; }
+.hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+.services, .products, .about, .testimonials, .contact { padding: 2rem 1rem; max-width: 1200px; margin: auto; }
+.services-list, .products-list, .testimonials-list { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
+.service, .product, .testimonial { background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #0001; padding: 1rem; flex: 1 1 250px; min-width: 250px; }
+.about { background: #f7fafc; border-radius: 8px; }
+.contact form { display: flex; flex-direction: column; gap: 1rem; max-width: 400px; margin: auto; }
+.contact input, .contact textarea { padding: 0.5rem; border-radius: 4px; border: 1px solid #ccc; }
+footer { background: #2d3e50; color: #fff; text-align: center; padding: 1rem 0; margin-top: 2rem; }
+@media (max-width: 800px) {
+    .services-list, .products-list, .testimonials-list { flex-direction: column; align-items: center; }
+}
